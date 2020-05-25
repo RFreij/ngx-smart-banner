@@ -30,13 +30,6 @@ export class NgxSmartBannerService {
     ) {
         this.isServer = isPlatformServer(this.platformId);
 
-        console.log(
-            platform.ANDROID,
-            platform.IOS,
-            platform.isBrowser,
-            platform.BLINK,
-        );
-
         this.settings = {
             title: 'Smart application',
             author: 'Smartbanner contributors',

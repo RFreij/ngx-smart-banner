@@ -1,27 +1,75 @@
 # NgxSmartBanner
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+> :warning: Package is under active development, every minor release will be a breaking release untill v1.0
 
-## Development server
+Angular service for the imlementation of a smart banner to notify your users about your available app. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This package is inspired by [smartbannerjs](https://github.com/ain/smartbanner.js) and [smart-app-banner](https://github.com/kudago/smart-app-banner)
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Add the package as a dependency to your project using:
 
-## Build
+```bash
+npm install @netcreaties/ngx-smart-banner
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+yarn add @netcreaties/ngx-smart-banner
+```
 
-## Running unit tests
+Add the module to your app.module imports:
+```typescript
+import { NgxSmartBannerModule } from '@netcreaties/ngx-smart-banner';
+...
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+    imports: [NgxSmartBannerModule],
+    ...
+})
+```
 
-## Running end-to-end tests
+Import the service in your app.component and initialize with settings
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```typescript
+import { NgxSmartBannerService } from '@netcreaties/ngx-smart-banner';
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+constructor(
+    private readonly ngxSmartBannerService: NgxSmartBannerService,
+    private readonly viewContainerRef: ViewContainerRef,
+) {
+    this.ngxSmartBannerService.initialize({
+        viewContainerRef: this.viewContainerRef,
+        daysHidden: 15,
+        daysReminder: 90,
+    });
+}
+```
+
+### Configuration options
+
+The following configuration options are available
+Option                              | Default               | Description
+---                                 | ---                   | ---
+title                               | Smart application     | Name of your application
+author                              | Smartbanner author    | The company name, for example
+price                               | FREE                  | Price in string
+priceSuffix.ios                     |  - On the App Store   | Suffix that should be added after price
+priceSuffix.andorid                 |  - In Google Play     | Suffix that should be added after price
+icon.ios                            |                       | Icon url for IOS devices, can be relative or absolute
+icon.android                        |                       | Icon url for android devices, can be relative or absolute
+closeLabel                          | Close                 | Label for close button
+buttonLabel                         | VIEW                  | Label for the view button
+buttonUrl.ios                       |                       | Url to store location ex. https://ios/application-url
+buttonUrl.android                   |                       | Url to google play ex. https://android/application-url
+enabledPlatforms                    | ['Android', 'IOS']    | Platforms to be enabled
+viewContainerRef (**Required**)     | NULL                  | View container ref the service uses to create the component in
+daysHidden                          | NULL                  | Days to hide the smart banner after pressing exit button, null for indefinitely
+daysReminder                        | NULL                  | Days to hide the smart banner after pressing the view button, null for indefinitely
+
+
+### TODO
+* Create demo
+* Add tests
+* Add events?

@@ -1,0 +1,47 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1, 
+  "newProjectRoot": "projects",
+  "projects": {
+    "NgxSmartBanner": {
+      "projectType": "library",
+      "root": "projects/ngx-smart-banner",
+      "sourceRoot": "projects/ngx-smart-banner/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-smart-banner/tsconfig.lib.json",
+            "project": "projects/ngx-smart-banner/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-smart-banner/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-smart-banner/src/test.ts",
+            "tsConfig": "projects/ngx-smart-banner/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-smart-banner/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-smart-banner/tsconfig.lib.json",
+              "projects/ngx-smart-banner/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "NgxSmartBanner"
+}

@@ -1,0 +1,34 @@
+<div class="smartbanner smartbanner--{{ modifier }}">
+    <button
+        (click)="exit()"
+        class="smartbanner__exit"
+        [attr.aria-label]="settings.closeLabel"
+    ></button>
+    <div
+        class="smartbanner__icon"
+        [ngStyle]="{ 'background-image': 'url(' + icon + ')' }"
+    ></div>
+    <div class="smartbanner__info">
+        <div>
+            <div class="smartbanner__info--title">
+                {{ settings.title }}
+            </div>
+            <div class="smartbanner__info--author">
+                {{ settings.author }}
+            </div>
+            <div class="smartbanner__info--price">
+                {{ settings.price }}{{ priceSuffix }}
+            </div>
+        </div>
+    </div>
+    <a
+        href="{{ buttonUrl }}"
+        target="_blank"
+        (click)="view()"
+        class="smartbanner__button"
+        rel="noopener"
+        [attr.aria-label]="settings.buttonLabel"
+    >
+        {{ settings.buttonLabel }}
+    </a>
+</div>

@@ -1,0 +1,196 @@
+$light-grey: #f3f3f3;
+$grey: #767676;
+$blue: #1474fc;
+$black: #000;
+
+.smartbanner {
+    box-sizing: border-box;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    padding: 0 10px;
+
+    width: 100%;
+    height: 84px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: $light-grey;
+
+    font-family: Helvetica, sans, sans-serif;
+
+    &__exit {
+        position: relative;
+        display: block;
+
+        width: 12px;
+        height: 12px;
+
+        border: 0;
+
+        text-align: center;
+
+        &::before,
+        &::after {
+            position: absolute;
+
+            width: 1px;
+            height: 12px;
+
+            background: $grey;
+
+            content: '';
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__icon {
+        width: 64px;
+        height: 64px;
+
+        border-radius: 15px;
+        background-size: 64px 64px;
+    }
+
+    &__info {
+        display: flex;
+        width: 60%;
+        height: 64px;
+
+        align-items: center;
+
+        color: $black;
+
+        &--title {
+            font-size: 14px;
+        }
+
+        &--author,
+        &--price {
+            font-size: 12px;
+        }
+    }
+
+    &__button {
+
+        display: block;
+        padding: 0 10px;
+        min-width: 10%;
+
+        border-radius: 5px;
+
+        background: $light-grey;
+
+        color: $blue;
+        font-size: 18px;
+        text-align: center;
+        text-decoration: none;
+
+        &__label {
+            text-align: center;
+        }
+    }
+
+    /** Android styles **/
+    &.smartbanner--android {
+        background: #3d3d3d
+            url('data:image/gif;base64,R0lGODlhCAAIAIABAFVVVf///yH5BAEHAAEALAAAAAAIAAgAAAINRG4XudroGJBRsYcxKAA7');
+        box-shadow: inset 0 4px 0 #88b131;
+
+        .smartbanner__exit {
+            margin-right: 7px;
+            width: 17px;
+            height: 17px;
+
+            border-radius: 14px;
+            background: #1c1e21;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) inset,
+                0 1px 1px rgba(255, 255, 255, 0.3);
+
+            color: #b1b1b3;
+            font-family: 'ArialRoundedMTBold', Arial;
+            font-size: 20px;
+            line-height: 17px;
+            text-shadow: 0 1px 1px #000;
+
+            &::before,
+            &::after {
+                top: 3px;
+                left: 8px;
+
+                width: 2px;
+                height: 11px;
+
+                background: #b1b1b3;
+            }
+
+            &:active,
+            &:hover {
+                color: #eee;
+            }
+        }
+
+        .smartbanner__icon {
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        .smartbanner__info {
+            color: #ccc;
+            text-shadow: 0 1px 2px #000;
+
+            &--title {
+                color: #fff;
+                font-weight: bold;
+            }
+        }
+
+        .smartbanner__button {
+            padding: 0;
+            min-width: 12%;
+
+            border-radius: 0;
+            background: none;
+            box-shadow: 0 0 0 1px #333, 0 0 0 2px #dddcdc;
+
+            color: #d1d1d1;
+            font-size: 14px;
+            font-weight: bold;
+
+            &:active,
+            &:hover {
+                background: none;
+            }
+
+            &__label {
+                display: block;
+                padding: 0 10px;
+
+                background: #42b6c9;
+                background: linear-gradient(to bottom, #42b6c9, #39a9bb);
+                box-shadow: none;
+
+                line-height: 24px;
+                text-align: center;
+                text-shadow: none;
+                text-transform: none;
+
+                &:active,
+                &:hover {
+                    background: #2ac7e1;
+                }
+            }
+        }
+    }
+}

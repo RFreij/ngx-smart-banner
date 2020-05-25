@@ -1,9 +1,38 @@
 {
-  "name": "ngx-smart-banner",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "^9.0.7",
-    "@angular/core": "^9.0.7",
-    "tslib": "^1.10.0"
-  }
+    "name": "@netcreaties/ngx-smart-banner",
+    "version": "0.0.2",
+    "peerDependencies": {
+        "@angular/common": "^9.0.7",
+        "@angular/core": "^9.0.7",
+        "@angular/cdk": "^9.2.4",
+        "ngx-cookie-service": "^3.0.4"
+    },
+    "devDependencies": {
+        "ngx-cookie-service": "^3.0.4"
+    },
+    "dependencies": {
+        "tslib": "^1.10.0"
+    },
+    "ngPackage": {
+        "whitelistedNonPeerDependencies": [
+            "ngx-cookie-service"
+        ]
+    },
+    "author": {
+        "email": "info@royfreij.nl",
+        "name": "Roy Freij",
+        "url": "https://www.linkedin.com/in/roy-freij/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/RFreij/ngx-mention.git"
+    },
+    "keywords": [
+        "Angular",
+        "smart",
+        "banner",
+        "android",
+        "ios"
+    ],
+    "license": "MIT"
 }

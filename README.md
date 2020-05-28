@@ -1,7 +1,5 @@
 # NgxSmartBanner
 
-> :warning: Package is under active development, every minor release will be a breaking release untill v1.0
-
 Angular service for the imlementation of a smart banner to notify your users about your available app. 
 
 This package is inspired by [smartbannerjs](https://github.com/ain/smartbanner.js) and [smart-app-banner](https://github.com/kudago/smart-app-banner)

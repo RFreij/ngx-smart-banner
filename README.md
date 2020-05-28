@@ -71,5 +71,4 @@ daysReminder                        | NULL                  | Days to hide the s
 
 ### TODO
 * Create demo
-* Add tests
 * Add events?

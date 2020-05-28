@@ -19,7 +19,7 @@ import {
 export class NgxSmartBannerService {
     private readonly isServer: boolean;
 
-    private settings: NgxSmartBannerSettings;
+    public settings: NgxSmartBannerSettings;
     private smartBanner: NgxSmartBannerComponent = null;
 
     constructor(
@@ -58,11 +58,11 @@ export class NgxSmartBannerService {
             return;
         }
 
+        this.settings = { ...this.settings, ...settings };
+
         if (!this.platformEnabled) {
             return;
         }
-
-        this.settings = { ...this.settings, ...settings };
 
         if (!this.settings.viewContainerRef) {
             throw new Error('No view container ref provided');

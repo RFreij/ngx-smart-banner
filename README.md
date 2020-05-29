@@ -4,6 +4,12 @@ Angular service for the imlementation of a smart banner to notify your users abo
 
 This package is inspired by [smartbannerjs](https://github.com/ain/smartbanner.js) and [smart-app-banner](https://github.com/kudago/smart-app-banner)
 
+## Peer dependencies
+Dependency                                                              | Description
+---                                                                     | ---
+[@angular/cdk/platform](https://material.angular.io/cdk/platform/api)   | To determine if the user comes from an android or ios device
+[ngx-cookie-service](https://www.npmjs.com/package/ngx-cookie-service)  | Provides a Universal compatible service to get or create cookies
+
 ## Usage
 
 Add the package as a dependency to your project using:

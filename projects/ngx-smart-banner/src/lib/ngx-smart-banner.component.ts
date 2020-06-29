@@ -13,6 +13,7 @@ export class NgxSmartBannerComponent {
     @Input() public componentRef: ComponentRef<NgxSmartBannerComponent>;
 
     public modifier: string;
+    public reviewStars: number;
 
     constructor(
         private readonly platform: Platform,
@@ -26,7 +27,9 @@ export class NgxSmartBannerComponent {
             this.modifier = 'ios';
         }
     }
-
+    public ngOnInit(): void {
+        console.log(this.settings?.rating);
+    }
     /**
      * Gets icon
      */
@@ -108,5 +111,22 @@ export class NgxSmartBannerComponent {
         date.setDate(date.getDate() + timeToLive);
 
         return date;
+    }
+    /**
+     * Gets review rating
+     *
+     * @author Harry Apperloo <harry@bsbip.com>
+     */
+
+    public get reviewAverage(): number {
+        if (this.platform.ANDROID) {
+            return this.settings?.rating.android;
+        }
+
+        if (this.platform.IOS) {
+            return this.settings?.rating?.ios;
+        }
+
+        return 5;
     }
 }

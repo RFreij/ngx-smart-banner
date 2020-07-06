@@ -27,9 +27,6 @@ export class NgxSmartBannerComponent {
             this.modifier = 'ios';
         }
     }
-    public ngOnInit(): void {
-        console.log(this.settings?.rating);
-    }
     /**
      * Gets icon
      */
@@ -117,7 +114,6 @@ export class NgxSmartBannerComponent {
      *
      * @author Harry Apperloo <harry@bsbip.com>
      */
-
     public get reviewAverage(): number {
         if (this.platform.ANDROID) {
             return this.settings?.rating.android;

@@ -1,9 +1,3 @@
-<head>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-</head>
 <div class="smartbanner smartbanner--{{ modifier }}">
     <button
         (click)="exit()"
@@ -23,41 +17,10 @@
                 {{ settings.author }}
             </div>
             <div class="smartbanner__info--rating">
-                <div *ngIf="reviewAverage === 1">
-                    <i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star-o"></i
-                    ><i class="fa star-rating fa-star-o"></i
-                    ><i class="fa star-rating fa-star-o"></i
-                    ><i class="fa star-rating fa-star-o"></i>
-                </div>
-                <div *ngIf="reviewAverage === 2">
-                    <i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star-o"></i
-                    ><i class="fa star-rating fa-star-o"></i
-                    ><i class="fa star-rating fa-star-o"></i>
-                </div>
-                <div *ngIf="reviewAverage === 3">
-                    <i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star-o"></i
-                    ><i class="fa star-rating fa-star-o"></i>
-                </div>
-                <div *ngIf="reviewAverage === 4">
-                    <i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star-o"></i>
-                </div>
-                <div *ngIf="reviewAverage === 5">
-                    <i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star"></i
-                    ><i class="fa star-rating fa-star"></i>
-                </div>
+                <app-star
+                    *ngFor="let in of [0, 1, 2, 3, 4]; let i = index"
+                    [solid]="reviewAverage <= i"
+                ></app-star>
             </div>
             <div class="smartbanner__info--price">
                 {{ settings.price }}{{ priceSuffix }}

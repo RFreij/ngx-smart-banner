@@ -5,6 +5,7 @@ $black: #000;
 
 .smartbanner {
     box-sizing: border-box;
+    text-shadow: none;
 
     position: absolute;
     top: 0;
@@ -28,6 +29,8 @@ $black: #000;
     &__exit {
         position: relative;
         display: block;
+        margin-right: 14px;
+        background-color: $light-grey;
 
         width: 12px;
         height: 12px;
@@ -39,6 +42,7 @@ $black: #000;
         &::before,
         &::after {
             position: absolute;
+            top: 0;
 
             width: 1px;
             height: 12px;
@@ -66,16 +70,21 @@ $black: #000;
     }
 
     &__info {
+        margin-left: 8px;
         display: flex;
-        width: 60%;
+        width: 45%;
         height: 64px;
 
         align-items: center;
 
-        color: $black;
+        color: $grey;
 
         &--title {
             font-size: 14px;
+            color: $black;
+        }
+        &--rating {
+            margin: 3px 0;
         }
 
         &--author,
@@ -85,17 +94,15 @@ $black: #000;
     }
 
     &__button {
-
         display: block;
         padding: 0 10px;
         min-width: 10%;
 
-        border-radius: 5px;
-
         background: $light-grey;
 
         color: $blue;
-        font-size: 18px;
+        font-size: 14px;
+        font-weight: bold;
         text-align: center;
         text-decoration: none;
 
@@ -108,11 +115,10 @@ $black: #000;
     &.smartbanner--android {
         background: #3d3d3d
             url('data:image/gif;base64,R0lGODlhCAAIAIABAFVVVf///yH5BAEHAAEALAAAAAAIAAgAAAINRG4XudroGJBRsYcxKAA7');
-        box-shadow: inset 0 4px 0 #88b131;
 
         .smartbanner__exit {
-            margin-right: 7px;
-            width: 17px;
+            margin-right: 0;
+            width: 18px;
             height: 17px;
 
             border-radius: 14px;
@@ -150,7 +156,6 @@ $black: #000;
 
         .smartbanner__info {
             color: #ccc;
-            text-shadow: 0 1px 2px #000;
 
             &--title {
                 color: #fff;
@@ -159,14 +164,11 @@ $black: #000;
         }
 
         .smartbanner__button {
-            padding: 0;
+            color: white;
+            background: #3eacc3;
+            padding: 5px 10px;
+            border: white solid 2px;
             min-width: 12%;
-
-            border-radius: 0;
-            background: none;
-            box-shadow: 0 0 0 1px #333, 0 0 0 2px #dddcdc;
-
-            color: #d1d1d1;
             font-size: 14px;
             font-weight: bold;
 
@@ -185,7 +187,6 @@ $black: #000;
 
                 line-height: 24px;
                 text-align: center;
-                text-shadow: none;
                 text-transform: none;
 
                 &:active,
@@ -195,4 +196,9 @@ $black: #000;
             }
         }
     }
+}
+.star-rating {
+    font-size: 12px;
+    color: #e19620;
+    margin-right: 2px;
 }

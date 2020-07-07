@@ -8,6 +8,10 @@ export interface NgxSmartBannerSettings {
         ios?: string;
         android?: string;
     };
+    rating?: {
+        ios?: number;
+        android?: number;
+    };
     icon?: {
         ios?: string;
         android?: string;

@@ -1,5 +1,5 @@
 import { Component, ViewContainerRef } from '@angular/core';
-import { NgxSmartBannerService } from '@netcreaties/ngx-smart-banner';
+import { NgxSmartBannerService } from 'projects/ngx-smart-banner/src/public_api';
 
 @Component({
     selector: 'app-root',

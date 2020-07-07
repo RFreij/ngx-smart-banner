@@ -45,6 +45,10 @@ export class NgxSmartBannerService {
                 ios: ' - On the App Store',
                 android: ' - In Google play',
             },
+            rating: {
+                ios: 2,
+                android: 5,
+            },
         };
     }
 

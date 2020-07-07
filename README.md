@@ -74,6 +74,11 @@ daysReminder                        | NULL                  | Days to hide the s
 rating.ios                          | 5                     | Star rating on App store (0-5)
 rating.android                      | 5                     | Star rating on play store (0-5)
 
+### Service events
+Event       | Description
+---         | ---
+onOpen      | Executes when smart banner is created
+onClose     | Executes when smart banner is destroyed
 
 ### TODO
 * Create demo

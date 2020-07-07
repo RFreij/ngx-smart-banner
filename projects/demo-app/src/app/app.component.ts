@@ -13,6 +13,14 @@ export class AppComponent {
         private readonly ngxSmartBannerService: NgxSmartBannerService,
         private readonly viewContainerRef: ViewContainerRef,
     ) {
+        this.ngxSmartBannerService.onClose.subscribe(() => {
+            console.log('close');
+        });
+
+        this.ngxSmartBannerService.onOpen.subscribe(() => {
+            console.log('open');
+        });
+
         this.ngxSmartBannerService.initialize({
             viewContainerRef: this.viewContainerRef,
             icon: {

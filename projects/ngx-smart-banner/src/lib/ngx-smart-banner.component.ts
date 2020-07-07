@@ -1,5 +1,5 @@
 import { Platform } from '@angular/cdk/platform';
-import { Component, ComponentRef, Input } from '@angular/core';
+import { Component, ComponentRef, EventEmitter, Input } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxSmartBannerSettings } from './settings.interface';
 
@@ -15,10 +15,14 @@ export class NgxSmartBannerComponent {
     public modifier: string;
     public reviewStars: number;
 
+    public onClose: EventEmitter<void>;
+
     constructor(
         private readonly platform: Platform,
         private readonly cookieService: CookieService,
     ) {
+        this.onClose = new EventEmitter();
+
         if (this.platform.ANDROID) {
             this.modifier = 'android';
         }
@@ -77,6 +81,7 @@ export class NgxSmartBannerComponent {
      */
     public exit(): void {
         this.cookieService.set('smartbanner_closed', '1', this.endDate('exit'));
+        this.onClose.emit();
         this.componentRef.destroy();
     }
 
@@ -87,6 +92,7 @@ export class NgxSmartBannerComponent {
      */
     public view(): void {
         this.cookieService.set('smartbanner_closed', '1', this.endDate('view'));
+        this.onClose.emit();
         this.componentRef.destroy();
     }
 

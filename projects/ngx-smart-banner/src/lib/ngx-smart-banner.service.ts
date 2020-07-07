@@ -2,11 +2,13 @@ import { Platform } from '@angular/cdk/platform';
 import { isPlatformServer } from '@angular/common';
 import {
     ComponentFactoryResolver,
+    EventEmitter,
     Inject,
     Injectable,
     PLATFORM_ID,
 } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { Subscription } from 'rxjs';
 import { NgxSmartBannerComponent } from './ngx-smart-banner.component';
 import {
     NgxSmartBannerPlatform,
@@ -22,12 +24,23 @@ export class NgxSmartBannerService {
     public settings: NgxSmartBannerSettings;
     private smartBanner: NgxSmartBannerComponent = null;
 
+    public onOpen: EventEmitter<void>;
+    public onClose: EventEmitter<void>;
+
+    private onCloseSubscription$: Subscription;
+
     constructor(
         private readonly platform: Platform,
         private readonly componentResolver: ComponentFactoryResolver,
         @Inject(PLATFORM_ID) private readonly platformId: string,
         private readonly cookieService: CookieService,
     ) {
+        this.onOpen = new EventEmitter();
+        this.onClose = new EventEmitter();
+
+        this.platform.ANDROID = true;
+        this.platform.IOS = false;
+
         this.isServer = isPlatformServer(this.platformId);
 
         this.settings = {
@@ -80,9 +93,18 @@ export class NgxSmartBannerService {
                 componentFactory,
             );
 
+            this.onOpen.emit();
             componentRef.instance.componentRef = componentRef;
 
             this.smartBanner = componentRef.instance;
+
+            this.onCloseSubscription$ = this.smartBanner.onClose.subscribe(
+                () => {
+                    this.onClose.emit();
+
+                    this.onCloseSubscription$.unsubscribe();
+                },
+            );
         }
 
         this.smartBanner.settings = this.settings;

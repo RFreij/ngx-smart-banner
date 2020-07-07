@@ -71,6 +71,8 @@ enabledPlatforms                    | ['Android', 'IOS']    | Platforms to be en
 viewContainerRef (**Required**)     | NULL                  | View container ref the service uses to create the component in
 daysHidden                          | NULL                  | Days to hide the smart banner after pressing exit button, null for indefinitely
 daysReminder                        | NULL                  | Days to hide the smart banner after pressing the view button, null for indefinitely
+rating.ios                          | 5                     | Star rating on App store (0-5)
+rating.android                      | 5                     | Star rating on play store (0-5)
 
 
 ### TODO

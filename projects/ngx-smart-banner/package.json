@@ -1,10 +1,10 @@
 {
     "name": "@netcreaties/ngx-smart-banner",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "peerDependencies": {
-        "@angular/common": "^9.0.7",
-        "@angular/core": "^9.0.7",
-        "@angular/cdk": "^9.2.4",
+        "@angular/common": "^>=9.0.0",
+        "@angular/core": ">=9.0.0",
+        "@angular/cdk": ">=9.0.0",
         "ngx-cookie-service": "^3.0.4"
     },
     "devDependencies": {

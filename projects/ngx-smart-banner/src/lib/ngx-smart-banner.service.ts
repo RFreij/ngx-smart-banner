@@ -38,9 +38,6 @@ export class NgxSmartBannerService {
         this.onOpen = new EventEmitter();
         this.onClose = new EventEmitter();
 
-        this.platform.ANDROID = true;
-        this.platform.IOS = false;
-
         this.isServer = isPlatformServer(this.platformId);
 
         this.settings = {

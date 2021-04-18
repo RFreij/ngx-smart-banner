@@ -72,10 +72,10 @@ $black: #000;
     &__info {
         margin-left: 8px;
         display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         width: 45%;
         height: 64px;
-
-        align-items: center;
 
         color: $grey;
 
@@ -84,6 +84,7 @@ $black: #000;
             color: $black;
         }
         &--rating {
+            display: flex;
             margin: 3px 0;
         }
 

@@ -13,7 +13,7 @@
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/ngx-smart-banner/tsconfig.lib.json",
-            "project": "projects/ngx-smart-banner/ng-package.json",
+            "project": "projects/ngx-smart-banner/ng-package.json"
           },
           "configurations": {
             "production": {
@@ -163,6 +163,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "NgxSmartBanner"
+    }
+  },
+  "defaultProject": "NgxSmartBanner",
+  "cli": {
+    "analytics": false
+  }
 }

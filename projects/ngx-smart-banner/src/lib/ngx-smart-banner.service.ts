@@ -59,6 +59,7 @@ export class NgxSmartBannerService {
                 ios: 2,
                 android: 5,
             },
+            hideRating: false,
         };
     }
 

@@ -26,6 +26,7 @@ export interface NgxSmartBannerSettings {
     viewContainerRef: ViewContainerRef | null;
     daysHidden?: number | null;
     daysReminder?: number | null;
+    hideRating?: boolean;
 }
 
 export enum NgxSmartBannerPlatform {

@@ -9,22 +9,20 @@
         [ngStyle]="{ 'background-image': 'url(' + icon + ')' }"
     ></div>
     <div class="smartbanner__info">
-        <div>
-            <div class="smartbanner__info--title">
-                {{ settings.title }}
-            </div>
-            <div class="smartbanner__info--author">
-                {{ settings.author }}
-            </div>
-            <div class="smartbanner__info--rating">
-                <app-star
-                    *ngFor="let in of [0, 1, 2, 3, 4]; let i = index"
-                    [solid]="reviewAverage <= i"
-                ></app-star>
-            </div>
-            <div class="smartbanner__info--price">
-                {{ settings.price }}{{ priceSuffix }}
-            </div>
+        <div class="smartbanner__info--title">
+            {{ settings.title }}
+        </div>
+        <div class="smartbanner__info--author">
+            {{ settings.author }}
+        </div>
+        <div class="smartbanner__info--rating" *ngIf="!settings.hideRating">
+            <app-star
+                *ngFor="let in of [0, 1, 2, 3, 4]; let i = index"
+                [solid]="reviewAverage <= i"
+            ></app-star>
+        </div>
+        <div class="smartbanner__info--price">
+            {{ settings.price }}{{ priceSuffix }}
         </div>
     </div>
     <a

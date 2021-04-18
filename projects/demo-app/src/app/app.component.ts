@@ -1,3 +1,4 @@
+import { Platform } from '@angular/cdk/platform';
 import { Component, ViewContainerRef } from '@angular/core';
 import { NgxSmartBannerService } from 'projects/ngx-smart-banner/src/public_api';
 
@@ -12,7 +13,10 @@ export class AppComponent {
     constructor(
         private readonly ngxSmartBannerService: NgxSmartBannerService,
         private readonly viewContainerRef: ViewContainerRef,
+        private readonly platform: Platform,
     ) {
+        this.platform.ANDROID = true;
+
         this.ngxSmartBannerService.onClose.subscribe(() => {
             console.log('close');
         });
@@ -35,6 +39,7 @@ export class AppComponent {
             },
             daysHidden: 15,
             daysReminder: 90,
+            hideRating: true,
         });
     }
 }

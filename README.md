@@ -56,6 +56,7 @@ constructor(
 The following configuration options are available
 Option                              | Default               | Description
 ---                                 | ---                   | ---
+viewContainerRef (**Required**)     | NULL                  | View container ref the service uses to create the component in
 title                               | Smart application     | Name of your application
 author                              | Smartbanner author    | The company name, for example
 price                               | FREE                  | Price in string
@@ -68,11 +69,11 @@ buttonLabel                         | VIEW                  | Label for the view
 buttonUrl.ios                       |                       | Url to store location ex. https://ios/application-url
 buttonUrl.android                   |                       | Url to google play ex. https://android/application-url
 enabledPlatforms                    | ['Android', 'IOS']    | Platforms to be enabled
-viewContainerRef (**Required**)     | NULL                  | View container ref the service uses to create the component in
 daysHidden                          | NULL                  | Days to hide the smart banner after pressing exit button, null for indefinitely
 daysReminder                        | NULL                  | Days to hide the smart banner after pressing the view button, null for indefinitely
 rating.ios                          | 5                     | Star rating on App store (0-5)
 rating.android                      | 5                     | Star rating on play store (0-5)
+hideRating                          | false                 | Use this option to hide the rating
 
 ### Service events
 Event       | Description

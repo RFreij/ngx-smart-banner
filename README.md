@@ -1,6 +1,6 @@
 # NgxSmartBanner
 
-Angular service for the imlementation of a smart banner to notify your users about your available app. 
+Angular service for the imlementation of a smart banner to notify your users about your available app.
 
 This package is inspired by [smartbannerjs](https://github.com/ain/smartbanner.js) and [smart-app-banner](https://github.com/kudago/smart-app-banner)
 
@@ -8,6 +8,9 @@ This package is inspired by [smartbannerjs](https://github.com/ain/smartbanner.j
 Dependency                                                              | Description
 ---                                                                     | ---
 [@angular/cdk/platform](https://material.angular.io/cdk/platform/api)   | To determine if the user comes from an android or ios device
+
+For Angular 12 (ivy enabled) and up > Use v2.*
+For Angular 11 > 9 Use v1.*
 
 ## Usage
 

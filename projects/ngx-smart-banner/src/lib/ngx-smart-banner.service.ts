@@ -22,12 +22,12 @@ export class NgxSmartBannerService {
     private readonly isServer: boolean;
 
     public settings: NgxSmartBannerSettings;
-    private smartBanner: NgxSmartBannerComponent = null;
+    private smartBanner: NgxSmartBannerComponent | null = null;
 
     public onOpen: EventEmitter<void>;
     public onClose: EventEmitter<void>;
 
-    private onCloseSubscription$: Subscription;
+    private onCloseSubscription$!: Subscription;
 
     constructor(
         private readonly platform: Platform,
@@ -112,15 +112,14 @@ export class NgxSmartBannerService {
      * Determine if platform is enabled
      */
     private get platformEnabled(): boolean {
-        console.log(this.settings.enabledPlatforms)
         if (this.platform.ANDROID) {
-            return this.settings.enabledPlatforms.includes(
+            return !!this.settings.enabledPlatforms?.includes(
                 NgxSmartBannerPlatform.Android,
             );
         }
 
         if (this.platform.IOS) {
-            return this.settings.enabledPlatforms.includes(
+            return !!this.settings.enabledPlatforms?.includes(
                 NgxSmartBannerPlatform.IOS,
             );
         }

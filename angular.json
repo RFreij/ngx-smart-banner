@@ -3,23 +3,26 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "NgxSmartBanner": {
+    "ngx-smart-banner": {
       "projectType": "library",
       "root": "projects/ngx-smart-banner",
       "sourceRoot": "projects/ngx-smart-banner/src",
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/ngx-smart-banner/tsconfig.lib.json",
             "project": "projects/ngx-smart-banner/ng-package.json"
           },
           "configurations": {
             "production": {
               "tsConfig": "projects/ngx-smart-banner/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-smart-banner/tsconfig.lib.json"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -27,18 +30,6 @@
             "main": "projects/ngx-smart-banner/src/test.ts",
             "tsConfig": "projects/ngx-smart-banner/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-smart-banner/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngx-smart-banner/tsconfig.lib.json",
-              "projects/ngx-smart-banner/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         }
       }
@@ -48,6 +39,9 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "projects/demo-app",
@@ -62,7 +56,7 @@
             "main": "projects/demo-app/src/main.ts",
             "polyfills": "projects/demo-app/src/polyfills.ts",
             "tsConfig": "projects/demo-app/tsconfig.app.json",
-            "aot": true,
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/demo-app/src/favicon.ico",
               "projects/demo-app/src/assets"
@@ -74,45 +68,48 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "projects/demo-app/src/environments/environment.ts",
                   "with": "projects/demo-app/src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "demo-app:build"
-          },
           "configurations": {
             "production": {
               "browserTarget": "demo-app:build:production"
+            },
+            "development": {
+              "browserTarget": "demo-app:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -127,6 +124,7 @@
             "polyfills": "projects/demo-app/src/polyfills.ts",
             "tsConfig": "projects/demo-app/tsconfig.spec.json",
             "karmaConfig": "projects/demo-app/karma.conf.js",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/demo-app/src/favicon.ico",
               "projects/demo-app/src/assets"
@@ -136,37 +134,9 @@
             ],
             "scripts": []
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/demo-app/tsconfig.app.json",
-              "projects/demo-app/tsconfig.spec.json",
-              "projects/demo-app/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/demo-app/e2e/protractor.conf.js",
-            "devServerTarget": "demo-app:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "demo-app:serve:production"
-            }
-          }
         }
       }
     }
   },
-  "defaultProject": "NgxSmartBanner",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "ngx-smart-banner"
 }

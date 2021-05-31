@@ -15,7 +15,7 @@ export class AppComponent {
         private readonly viewContainerRef: ViewContainerRef,
         private readonly platform: Platform,
     ) {
-        this.platform.ANDROID = true;
+        this.platform.IOS = true;
 
         this.ngxSmartBannerService.onClose.subscribe(() => {
             console.log('close');

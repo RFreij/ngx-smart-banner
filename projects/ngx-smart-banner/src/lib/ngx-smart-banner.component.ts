@@ -9,11 +9,10 @@ import { CookieService } from './utils/cookie-service';
     styleUrls: ['./ngx-smart-banner.component.scss'],
 })
 export class NgxSmartBannerComponent {
-    @Input() public settings: NgxSmartBannerSettings;
-    @Input() public componentRef: ComponentRef<NgxSmartBannerComponent>;
+    @Input() public settings!: NgxSmartBannerSettings;
+    @Input() public componentRef!: ComponentRef<NgxSmartBannerComponent>;
 
-    public modifier: string;
-    public reviewStars: number;
+    public modifier!: string;
 
     public onClose: EventEmitter<void>;
 
@@ -34,7 +33,7 @@ export class NgxSmartBannerComponent {
     /**
      * Gets icon
      */
-    public get icon(): string | null {
+    public get icon(): string | undefined | null {
         if (this.platform.ANDROID) {
             return this.settings?.icon?.android;
         }
@@ -49,7 +48,7 @@ export class NgxSmartBannerComponent {
     /**
      * Gets button url
      */
-    public get buttonUrl(): string {
+    public get buttonUrl(): string | undefined {
         if (this.platform.ANDROID) {
             return this.settings?.buttonUrl?.android;
         }
@@ -64,13 +63,13 @@ export class NgxSmartBannerComponent {
     /**
      * Gets price suffix
      */
-    public get priceSuffix(): string {
+    public get priceSuffix(): string | undefined {
         if (this.platform.ANDROID) {
-            return this.settings.priceSuffix.android;
+            return this.settings.priceSuffix?.android;
         }
 
         if (this.platform.IOS) {
-            return this.settings.priceSuffix.ios;
+            return this.settings.priceSuffix?.ios;
         }
 
         return '';
@@ -111,7 +110,7 @@ export class NgxSmartBannerComponent {
                 ? this.settings.daysHidden
                 : this.settings.daysReminder;
 
-        date.setDate(date.getDate() + timeToLive);
+        date.setDate(date.getDate() + (timeToLive || 0));
 
         return date;
     }
@@ -120,9 +119,9 @@ export class NgxSmartBannerComponent {
      *
      * @author Harry Apperloo <harry@bsbip.com>
      */
-    public get reviewAverage(): number {
+    public get reviewAverage(): number | undefined {
         if (this.platform.ANDROID) {
-            return this.settings?.rating.android;
+            return this.settings?.rating?.android;
         }
 
         if (this.platform.IOS) {

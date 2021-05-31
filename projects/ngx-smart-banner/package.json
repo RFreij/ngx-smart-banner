@@ -1,5 +1,5 @@
 {
-  "name": "ngx-smart-banner",
+  "name": "@netcreaties/ngx-smart-banner",
   "version": "2.0.0-0",
   "peerDependencies": {
     "@angular/common": ">=12.0.2",

@@ -1,10 +1,10 @@
 import { Platform } from '@angular/cdk/platform';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { CookieService } from 'ngx-cookie-service';
 import { PlatformMockIOS } from '../testing/patform-mock-ios';
 import { NgxSmartBannerComponent } from './ngx-smart-banner.component';
 import { NgxSmartBannerService } from './ngx-smart-banner.service';
+import { CookieService } from './utils/cookie-service';
 
 describe('NgxSmartBannerComponent IOS', () => {
     let component: NgxSmartBannerComponent;

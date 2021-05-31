@@ -1,7 +1,7 @@
 import { Platform } from '@angular/cdk/platform';
 import { Component, ComponentRef, EventEmitter, Input } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { NgxSmartBannerSettings } from './settings.interface';
+import { CookieService } from './utils/cookie-service';
 
 @Component({
     selector: 'nc-ngx-smart-banner',

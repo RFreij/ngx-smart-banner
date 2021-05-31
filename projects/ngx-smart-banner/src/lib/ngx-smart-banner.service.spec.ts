@@ -2,11 +2,11 @@ import { Platform } from '@angular/cdk/platform';
 import { Component, ViewContainerRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { CookieService } from 'ngx-cookie-service';
-import { NgxSmartBannerComponent } from '../public_api';
+import { NgxSmartBannerComponent } from '../public-api';
 import { PlatformMockIOS } from '../testing/patform-mock-ios';
 import { NgxSmartBannerService } from './ngx-smart-banner.service';
 import { NgxSmartBannerPlatform } from './settings.interface';
+import { CookieService } from './utils/cookie-service';
 
 @Component({
     template: `<div></div>`,

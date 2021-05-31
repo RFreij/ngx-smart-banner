@@ -1,6 +1,6 @@
 import { Platform } from '@angular/cdk/platform';
 import { Component, ViewContainerRef } from '@angular/core';
-import { NgxSmartBannerService } from 'projects/ngx-smart-banner/src/public_api';
+import { NgxSmartBannerService } from 'projects/ngx-smart-banner/src/public-api';
 
 @Component({
     selector: 'app-root',

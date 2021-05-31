@@ -8,7 +8,6 @@ This package is inspired by [smartbannerjs](https://github.com/ain/smartbanner.j
 Dependency                                                              | Description
 ---                                                                     | ---
 [@angular/cdk/platform](https://material.angular.io/cdk/platform/api)   | To determine if the user comes from an android or ios device
-[ngx-cookie-service](https://www.npmjs.com/package/ngx-cookie-service)  | Provides a Universal compatible service to get or create cookies
 
 ## Usage
 

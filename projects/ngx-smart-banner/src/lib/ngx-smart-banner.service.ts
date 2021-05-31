@@ -7,13 +7,13 @@ import {
     Injectable,
     PLATFORM_ID,
 } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
 import { NgxSmartBannerComponent } from './ngx-smart-banner.component';
 import {
     NgxSmartBannerPlatform,
     NgxSmartBannerSettings,
 } from './settings.interface';
+import { CookieService } from './utils/cookie-service';
 
 @Injectable({
     providedIn: 'root',
@@ -69,18 +69,18 @@ export class NgxSmartBannerService {
      * @params settings
      */
     public initialize(settings: NgxSmartBannerSettings): void {
+        this.settings = { ...this.settings, ...settings };
+
+        if (!this.settings.viewContainerRef) {
+            throw new Error('No view container ref provided');
+        }
+
         if (this.isServer || this.cookieService.check('smartbanner_closed')) {
             return;
         }
 
-        this.settings = { ...this.settings, ...settings };
-
         if (!this.platformEnabled) {
             return;
-        }
-
-        if (!this.settings.viewContainerRef) {
-            throw new Error('No view container ref provided');
         }
 
         if (this.smartBanner === null) {
@@ -112,6 +112,7 @@ export class NgxSmartBannerService {
      * Determine if platform is enabled
      */
     private get platformEnabled(): boolean {
+        console.log(this.settings.enabledPlatforms)
         if (this.platform.ANDROID) {
             return this.settings.enabledPlatforms.includes(
                 NgxSmartBannerPlatform.Android,
